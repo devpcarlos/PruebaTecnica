@@ -19,7 +19,7 @@ public class Detalles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String matricula;
-    private String kilometro;
+    private int kilometro;
     private LocalDateTime craeted;
     private LocalDateTime updated;
     @ManyToOne()

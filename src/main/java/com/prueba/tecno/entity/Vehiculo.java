@@ -20,9 +20,7 @@ public class Vehiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String marca;
-    private String modelo;
+    private int modelo;
     private LocalDateTime craeted;
     private LocalDateTime updated;
-    @OneToMany(mappedBy = "vehiculo")
-    private List<Detalles> detalles;
 }

@@ -25,7 +25,4 @@ public class Cliente {
     private String ciudad;
     private LocalDateTime craeted;
     private LocalDateTime updated;
-    @OneToMany(mappedBy = "cliente")
-    private List<Detalles> detalles;
-
 }
