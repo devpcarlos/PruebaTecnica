@@ -7,5 +7,6 @@ import java.time.LocalDateTime;
 public class VehiculoDto {
     private String marca;
     private int modelo;
-    private LocalDateTime updated;
+    private LocalDateTime created;
+    private LocalDateTime updated;;
 }
