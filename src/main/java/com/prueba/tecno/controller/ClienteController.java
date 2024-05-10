@@ -16,13 +16,18 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/save")
-    public ResponseEntity<?> register(@Valid @RequestBody ClienteRequestDto clienteRequestDto){
+    public ResponseEntity register(@Valid @RequestBody ClienteRequestDto clienteRequestDto){
         clienteService.createCliente(clienteRequestDto);
         return ResponseEntity.ok("Cliente Guardado con exito");
     }
 
     @GetMapping("/{correo}")
-    public ClienteResponseDto GetCorreo(@PathVariable String correo){
-      return clienteService.GetCorreo(correo);
+    public ResponseEntity GetCorreo(@PathVariable String correo){
+      return ResponseEntity.ok(clienteService.GetCorreo(correo));
+    }
+
+    @GetMapping
+    public ResponseEntity List(){
+        return ResponseEntity.ok( clienteService.AllCliente());
     }
 }

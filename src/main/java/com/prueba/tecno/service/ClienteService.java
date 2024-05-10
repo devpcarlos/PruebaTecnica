@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
 
@@ -36,10 +38,15 @@ public class ClienteService {
         return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado con éxito");
     }
 
-    public ClienteResponseDto GetCorreo(String correo){
+    public ResponseEntity GetCorreo(String correo){
 
         Cliente cliente = clienteRepository.findByCorreo(correo);
 
-        return clienteMap.ClienteToResponseDto(cliente);
+        return ResponseEntity.ok(clienteMap.ClienteToResponseDto(cliente));
+    }
+
+    public ResponseEntity AllCliente(){
+        List<Cliente> clientes = clienteRepository.findAll();
+        return ResponseEntity.ok(clienteMap.ClienteToClienteResponseDto(clientes));
     }
 }

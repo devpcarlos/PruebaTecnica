@@ -21,6 +21,22 @@ public class Vehiculo {
     private Long id;
     private String marca;
     private int modelo;
-    private LocalDateTime craeted;
+    private String matricula;
+    private int kilometro;
+    private LocalDateTime created;
     private LocalDateTime updated;
+    @ManyToOne
+    @JoinColumn(name = "Id_cliente")
+    private Cliente cliente;
+
+    @PrePersist
+    public void prePersist() {
+        this.created = LocalDateTime.now();
+        this.updated = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updated = LocalDateTime.now();
+    }
 }
