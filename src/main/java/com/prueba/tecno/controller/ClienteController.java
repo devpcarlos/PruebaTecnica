@@ -22,8 +22,8 @@ public class ClienteController {
     }
 
     @GetMapping("/{correo}")
-    public ResponseEntity GetCorreo(@PathVariable String correo){
-      return ResponseEntity.ok(clienteService.GetCorreo(correo));
+    public ResponseEntity SearchCorreo(@PathVariable String correo){
+      return ResponseEntity.ok(clienteService.SearchCorreo(correo));
     }
 
     @GetMapping

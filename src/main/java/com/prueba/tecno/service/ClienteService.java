@@ -38,7 +38,7 @@ public class ClienteService {
         return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado con éxito");
     }
 
-    public ResponseEntity GetCorreo(String correo){
+    public ResponseEntity SearchCorreo(String correo){
 
         Cliente cliente = clienteRepository.findByCorreo(correo);
 

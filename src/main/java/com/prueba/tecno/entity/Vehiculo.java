@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,20 +25,13 @@ public class Vehiculo {
     private int modelo;
     private String matricula;
     private int kilometro;
+    @CreationTimestamp
     private LocalDateTime created;
+    @UpdateTimestamp
     private LocalDateTime updated;
     @ManyToOne
     @JoinColumn(name = "Id_cliente")
     private Cliente cliente;
 
-    @PrePersist
-    public void prePersist() {
-        this.created = LocalDateTime.now();
-        this.updated = LocalDateTime.now();
-    }
 
-    @PreUpdate
-    public void preUpdate() {
-        this.updated = LocalDateTime.now();
-    }
 }

@@ -19,6 +19,6 @@ public class VehiculoRequestDto {
     private String matricula;
     @NotNull(message = "El campo kilometro no puede estar vacio")
     private int kilometro;
-    @NotBlank(message = "El campo cliente no puede estar vacio")
-    private Cliente cliente;
+    @NotNull(message = "El campo cliente no puede estar vacio")
+    private Long clienteId;
 }
