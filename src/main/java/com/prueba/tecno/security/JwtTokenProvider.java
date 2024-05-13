@@ -23,7 +23,7 @@ public class JwtTokenProvider {
     private int jwtExpiration;
 
     private SecretKey getSecretKey() {
-        byte[] decodeKey = Base64.getDecoder().decode(jwtSecret.getBytes(StandardCharsets.UTF_8));git 
+        byte[] decodeKey = Base64.getDecoder().decode(jwtSecret.getBytes(StandardCharsets.UTF_8));
         return Keys.hmacShaKeyFor(decodeKey);
     }
 

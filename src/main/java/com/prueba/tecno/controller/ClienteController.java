@@ -21,11 +21,6 @@ public class ClienteController {
         return ResponseEntity.ok("Cliente Guardado con exito");
     }
 
-    @GetMapping("/{correo}")
-    public ResponseEntity SearchCorreo(@PathVariable String correo){
-      return ResponseEntity.ok(clienteService.SearchCorreo(correo));
-    }
-
     @GetMapping
     public ResponseEntity List(){
         return ResponseEntity.ok( clienteService.AllCliente());
