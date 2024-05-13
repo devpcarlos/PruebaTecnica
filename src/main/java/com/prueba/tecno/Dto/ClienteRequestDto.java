@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -20,6 +19,7 @@ public class ClienteRequestDto {
     private String apellido;
     @NotBlank(message = "El campo celular no puede estar vacio")
     private String celular;
+    @NotBlank(message = "El campo Email no puede estar vacio")
     @Email(message = "Debe ser un correo valido")
     private String correo;
     @NotBlank(message = "El campo contraseña no puede estar vacio")
