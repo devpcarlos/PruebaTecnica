@@ -2,6 +2,8 @@ package com.prueba.tecno.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -22,18 +24,11 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String celular;
+    @Column(unique = true)
     private String correo;
     private String password;
+    @CreationTimestamp
     private LocalDateTime created;
+    @UpdateTimestamp
     private LocalDateTime updated;
-    @PrePersist
-    public void prePersist() {
-        this.created = LocalDateTime.now();
-        this.updated = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updated = LocalDateTime.now();
-    }
 }
