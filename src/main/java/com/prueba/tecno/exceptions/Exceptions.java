@@ -4,23 +4,21 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class CustomException extends RuntimeException {
+public class Exceptions extends RuntimeException {
 
-    private final String timestamp;
-    private final HttpStatus status;
-    private final String error;
-    private final String message;
+    private HttpStatus status;
+    private String messages;
 
-    public CustomException(HttpStatus status, String message) {
+    public Exceptions(HttpStatus status, String message) {
         super(message);
-        this.timestamp = java.time.LocalDateTime.now().toString();
         this.status = status;
-        this.error = status.getReasonPhrase();
-        this.message = message;
+        this.messages = message;
     }
+
 
     @Override
     public String getMessage() {
-        return message;
+        return messages; // Devuelve el mensaje personalizado
     }
 }
+

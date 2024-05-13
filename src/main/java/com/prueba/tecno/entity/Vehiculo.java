@@ -32,6 +32,4 @@ public class Vehiculo {
     @ManyToOne
     @JoinColumn(name = "Id_cliente")
     private Cliente cliente;
-
-
 }
