@@ -32,19 +32,6 @@ public class ClienteService {
         return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado con éxito");
     }
 
-
-    public ResponseEntity<String> updateCliente(Long id, ClienteRequestDto clienteRequestDto){
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente creado con éxito");
-    }
-
-    public ResponseEntity SearchCorreo(String correo){
-
-        Cliente cliente = clienteRepository.findByCorreo(correo);
-
-        return ResponseEntity.ok(clienteMap.ClienteToResponseDto(cliente));
-    }
-
     public ResponseEntity AllCliente(){
         List<Cliente> clientes = clienteRepository.findAll();
         return ResponseEntity.ok(clienteMap.ClienteToClienteResponseDto(clientes));
